@@ -1,42 +1,30 @@
 body {
-    background: grey;
-    font-family: Calibri, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    background-color: grey;
 }
 
 #moveButton {
-    padding: 10px 20px;
-    background-color: #3498db;
+    background-color: lightblue;
     color: white;
     border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    font-size: 36px;
+    font-size: 16px;
     font-weight: bold;
-    transition: all 0.3s;
+    position: absolute;
+    /* Initial position */
+    left: 0;
+    top: 0;
 }
 
 #message {
-    font-size: 72px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.wiggle-animation {
-    animation: wiggle 0.5s ease-in-out infinite;
-}
-
-@keyframes wiggle {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-3px) rotate(-2deg);
-    }
-    75% {
-        transform: translateX(3px) rotate(2deg);
-    }
+    font-family: "Calibri", sans-serif; /* Set the font-family to Calibri */
+    font-size: 4rem; /* Adjust the font size */
+    font-weight: bold; /* Set font weight to bold */
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow for the outline effect */
 }
