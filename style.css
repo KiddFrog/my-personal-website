@@ -1,3 +1,12 @@
 body {
-    background: blue;
-  }
+    background: grey;
+}
+
+#moveButton {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
