@@ -24,13 +24,13 @@ moveButton.addEventListener("click", () => {
     moveButton.style.position = "absolute";
     moveButton.style.top = `${randomY}px`;
     moveButton.style.left = `${randomX}px`;
+
+    // Apply the wiggle animation to the message
+    messageDiv.classList.add("wiggle-animation");
 });
 
 function getRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+    const rainbowColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+    const randomIndex = Math.floor(Math.random() * rainbowColors.length);
+    return rainbowColors[randomIndex];
 }
