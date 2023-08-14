@@ -7,11 +7,13 @@ const messageText = 'Hello Flatiron!';
 const letterObjects = []; // Array to store individual letter objects
 
 let currentIndex = 0; // Track the current index of the message
+let buttonDirection = 1; // Direction of the button movement (1 or -1)
+let buttonSpeed = 1; // Speed of the button movement
 
 function animateButton() {
-    let x = 0; // Initial horizontal position
-    let y = 0; // Initial vertical position
-    let xSpeed = 1; // Slower horizontal speed
+    let x = Math.random() * (window.innerWidth - moveButton.clientWidth); // Random initial horizontal position
+    let y = Math.random() * (window.innerHeight - moveButton.clientHeight); // Random initial vertical position
+    let xSpeed = buttonSpeed * buttonDirection; // Horizontal speed with direction
     let ySpeed = 1; // Slower vertical speed
 
     const frameRate = 60; // Adjust the frame rate
@@ -21,12 +23,26 @@ function animateButton() {
         x += xSpeed;
         y += ySpeed;
 
-        // Check for collisions with the screen edges
+        // Check for collisions with the screen edges and change direction
         if (x + moveButton.clientWidth >= window.innerWidth || x <= 0) {
-            xSpeed *= -1; // Reverse horizontal direction
+            buttonDirection *= -1; // Reverse horizontal direction
         }
         if (y + moveButton.clientHeight >= window.innerHeight || y <= 0) {
             ySpeed *= -1; // Reverse vertical direction
+        }
+
+        // Prevent button from going off the screen horizontally
+        if (x < 0) {
+            x = 0;
+        } else if (x + moveButton.clientWidth > window.innerWidth) {
+            x = window.innerWidth - moveButton.clientWidth;
+        }
+
+        // Prevent button from going off the screen vertically
+        if (y < 0) {
+            y = 0;
+        } else if (y + moveButton.clientHeight > window.innerHeight) {
+            y = window.innerHeight - moveButton.clientHeight;
         }
 
         // Apply the new position to the button
@@ -52,8 +68,10 @@ function animateButton() {
     step();
 }
 
+
 // Start the animation loop
 animateButton();
+
 
 moveButton.addEventListener('click', () => {
     revealNextLetter();
@@ -79,7 +97,6 @@ function revealNextLetter() {
 
         // Push the letter object to the array
         letterObjects.push(letterObject);
-
         currentIndex++;
 
         if (currentIndex >= messageText.length) {
@@ -94,5 +111,3 @@ function applyRainbowColor(element) {
     const colorIndex = Math.floor(Math.random() * colors.length);
     element.style.color = colors[colorIndex];
 }
-
-
