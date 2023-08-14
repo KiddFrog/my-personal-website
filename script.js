@@ -1,7 +1,7 @@
 const moveButton = document.getElementById('moveButton');
 const messageDiv = document.getElementById('message');
 
-const messageText = 'Hello Flatiron!';
+const messageText = 'Hello  Flatiron!';
 const letters = messageText.split('');
 
 const letterObjects = [];
@@ -48,13 +48,14 @@ function applyCustomStyles(element, index) {
     // Apply the sine wave effect to the letters
     animateSinWave(element);
 
-    // Apply the rainbow color effect to the letters
-    animateRainbowColor(element, index);
+    // Apply the random color effect to the letters
+    animateRandomColor(element);
 }
 
+// Function to animate the sine wave effect
 function animateSinWave(element) {
-    const amplitude = 20;
-    const frequency = 0.15;
+    const amplitude = 40; // Adjust the amplitude of the sine wave
+    const frequency = 5; // Adjust the frequency of the sine wave
 
     function step(timestamp) {
         const verticalOffset = amplitude * Math.sin(frequency * (timestamp / 1000));
@@ -65,19 +66,11 @@ function animateSinWave(element) {
 
     requestAnimationFrame(step);
 }
-
-function animateRainbowColor(element, index) {
+/////////////////
+function animateRandomColor(element) {
     const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-    const frequency = 0.2;
-
-    function step(timestamp) {
-        const colorIndex = Math.floor((timestamp / 1000) * frequency) % colors.length;
-        element.style.color = colors[colorIndex];
-
-        requestAnimationFrame(step);
-    }
-
-    requestAnimationFrame(step);
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    element.style.color = randomColor;
 }
 
 function revealNextLetter() {
