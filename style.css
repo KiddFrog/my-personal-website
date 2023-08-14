@@ -1,5 +1,10 @@
 body {
     background-color: grey;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 #moveButton {
@@ -12,19 +17,14 @@ body {
     font-size: 16px;
     font-weight: bold;
     position: absolute;
-    /* Initial position */
     left: 0;
     top: 0;
 }
 
 #message {
-    font-family: "Calibri", sans-serif; /* Set the font-family to Calibri */
-    font-size: 4rem; /* Adjust the font size */
-    font-weight: bold; /* Set font weight to bold */
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow for the outline effect */
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
 }
